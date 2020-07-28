@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import About from './components/about';
+import Grid from './components/grid';
+import Rules from './components/rules';
 
-function App() {
+import { Route, Link, Switch } from 'react-router-dom';
+import styled from "styled-components"; 
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MaindDiv>
+      <div>
+        <Link to="/about">
+          About
+        </Link>
+        <Link to="/rules">
+          Rules
+        </Link>
+        <Link to="/game">
+          Game
+        </Link>
+      </div>
+      <h1>Welcome to John Conway's Game of Life</h1>
+      <Switch>
+        <Route path="/about" component={About} />
+        <Route path="/rules" component={Rules} />
+        <Route path="/game" component={Grid} />
+      </Switch>
+    </MaindDiv>
   );
 }
 
