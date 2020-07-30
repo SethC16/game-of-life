@@ -6,17 +6,52 @@ import Rules from './components/rules';
 import { Route, Link, Switch } from 'react-router-dom';
 import styled from "styled-components"; 
 
+const MainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C0C0C0;
+  h1 {
+    font-family: "Holtwood One SC", serif;
+    color: #000000;
+  }
+`;
+
 const App = () => {
   return (
-    <MaindDiv>
+    <MainDiv>
       <div>
-        <Link to="/about">
+        <Link 
+          style={{
+            textDecoration: "none",
+            color: "black",
+            fontSize: "1.5rem",
+            paddingRight: 10,
+          }}
+          to="/about"
+          >
           About
         </Link>
-        <Link to="/rules">
+        <Link 
+          style={{
+            textDecoration: "none",
+            color: "black",
+            fontSize: "1.5rem",
+            paddingRight: 10,
+          }}
+          to="/rules"
+          >
           Rules
         </Link>
-        <Link to="/game">
+        <Link 
+          style={{
+            textDecoration: "none",
+            color: "black",
+            fontSize: "1.5rem",
+            paddingRight: 10,
+          }}
+          to="/"
+          >
           Game
         </Link>
       </div>
@@ -24,9 +59,9 @@ const App = () => {
       <Switch>
         <Route path="/about" component={About} />
         <Route path="/rules" component={Rules} />
-        <Route path="/game" component={Grid} />
+        <Route path="/" component={Grid} />
       </Switch>
-    </MaindDiv>
+    </MainDiv>
   );
 }
 
