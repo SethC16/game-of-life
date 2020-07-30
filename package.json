@@ -2,12 +2,16 @@
   "name": "game-of-life",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.12.1",
+    "node": "12.13.1"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "elliptic": "^6.5.3",
     "immer": "^7.0.7",
+    "node": "^14.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -15,7 +19,7 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "npm start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
