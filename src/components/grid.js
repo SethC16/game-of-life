@@ -51,6 +51,7 @@ const Grid = () => {
         return generateEmptyGrid();
     });
 
+    // State managemant //
     const [running, setRunning] = useState(false);
     const [genCount, setGenCount] = useState(0);
     const [speed, setSpeed] = useState(100);
@@ -63,6 +64,7 @@ const Grid = () => {
     const generationCountRef = useRef(generationCount);
     generationCountRef.current = generationCount;
 
+    // Hooks used //
     const changeSpeed = (e) => {
         if(!running) {
             setSpeed(e.target.value);
@@ -92,7 +94,7 @@ const Grid = () => {
             return;
         }
     
-    
+        // 
         setGenCount((genCount) => (genCount += 1));
         setGrid((g) => {
             return produce(g, gridCopy => {
@@ -124,6 +126,7 @@ const Grid = () => {
         <>
         <Generation genCount={genCount} />
         <MainDiv>
+            {/* Start/stop button */}
             <button
                 onClick={() => {
                     setRunning(!running);
@@ -135,6 +138,7 @@ const Grid = () => {
             >
                 {running ? "Stop" : "Start"}
             </button>
+            {/* Random button generator */}
             <button
                 onClick={() => {
                     const rows = [];
@@ -148,6 +152,7 @@ const Grid = () => {
                 >
                     Random
                 </button>
+                {/* Clear button */}
                 <button
                     onClick={() => {
                         setGrid(generateEmptyGrid());
@@ -157,6 +162,7 @@ const Grid = () => {
                 >
                     Clear
                 </button>
+                {/* Grid size change button */}
                 <button
                     onClick={() => {
                         changeSize();
@@ -167,6 +173,7 @@ const Grid = () => {
                     {sizeButton ? "Increase Grid Size" : "Decrease Grid Size"}
                 </button>
         </MainDiv>
+        {/* Speed text field input */}
         <form>
             <label style={{ fontfamily: "Holtwood One SC", paddingBottom: 20 }}>
                 <input
@@ -177,7 +184,7 @@ const Grid = () => {
                 />
             </label>
         </form>
-
+        {/* Grid display div */}            
         <div
             style={{
                 display: "grid",
